@@ -1,5 +1,24 @@
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
 set editing-mode vi
+set keymap vi-insert
+
 set show-mode-in-prompt on
 set vi-ins-mode-string \1\e[6 q\2
 set vi-cmd-mode-string \1\e[2 q\2
 
+$if mode=vi
+"\C-a": beginning-of-line
+"\C-e": end-of-line
+"\C-l": clear-screen
+"\C-n": next-history
+"\C-p": previous-history
+"\C-w": backward-kill-word
+
+"\e.": yank-last-arg
+"\e_": yank-last-arg
+"\eb": backward-word
+"\ef": forward-word
+$endif
