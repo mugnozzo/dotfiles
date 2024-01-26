@@ -1,27 +1,30 @@
-set completion-ignore-case on
+set completion-ignore-case on       # Ignore case when autocompleting
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
-set editing-mode vi
-set keymap vi-insert
+set editing-mode vi                 # Set vi-mode
 
 set show-mode-in-prompt on
-set vi-ins-mode-string \1\e[6 q\2
-set vi-cmd-mode-string \1\e[2 q\2
+set vi-ins-mode-string "\1\e[6 q\2"   # Set pipe shape when in insert mode
+set vi-cmd-mode-string "\1\e[2 q\2"   # Set rectangle shape when in command mode
+
+# Some emacs-like keybindings
+# and other keybindings I find
+# useful
 
 $if mode=vi
-"\C-a": beginning-of-line
-"\C-e": end-of-line
-"\C-l": clear-screen
-"\C-n": next-history
-"\C-p": previous-history
-"\C-w": backward-kill-word
-"\e\177": backward-kill-word
-"\ed": kill-word
-"\C-[": vi-movement-mode
+"\C-a": beginning-of-line           # Ctrl-A moves cursor to beginning of line
+"\C-e": end-of-line                 # Ctrl-E moves cursor to beginning of line
+"\C-l": clear-screen                # Ctrl-L clears screen
+"\C-n": next-history                # Ctrl-N goes next in command history
+"\C-p": previous-history            # Ctrl-P goes previous in command history
+"\e\177": backward-kill-word        # Ctrl-BACKSPACE kills word backwards
+"\ed": kill-word                    # Ctrl-D kills word forwards
+"\C-[": vi-movement-mode            # Ctrl-[ exit insert mode
 
-"\e.": yank-last-arg
-"\e_": yank-last-arg
-"\eb": backward-word
-"\ef": forward-word
+"\C-f": forward-char                # Ctrl-F moves cursor 1 character forwards
+"\C-b": backward-char               # Ctrl-B moves cursor 1 character backward
+"\e.": yank-last-arg                # Alt-. or "ESC ." pastes the last argument of last command
+"\eb": backward-word                # Alt-B moves cursor 1 word backwards
+"\ef": forward-word                 # Alt-F moves cursor 1 word forwards
 $endif
